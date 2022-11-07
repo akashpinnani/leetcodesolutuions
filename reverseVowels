@@ -1,0 +1,27 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var reverseVowels = function(s) {
+    const vowels = new Set(['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']);
+    let left = 0, right = s.length -1;
+    let arr = s.split('');
+    while(left < right) {
+        if(vowels.has(arr[left]) && vowels.has(arr[right])) {
+            [arr[left], arr[right]] = [arr[right], arr[left]];
+            left++;
+            right--;
+        } else if(vowels.has(arr[left])) {
+            right--;
+
+        } else {
+            left++;
+
+        }
+
+    }
+    return arr.join('');
+
+
+
+};
